@@ -1,3 +1,433 @@
-<div class="container-fluid container-fluid-custom">
-    <h1>About</h1>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About us</title>
+    <link rel="stylesheet" href="{% static 'about.css' %}" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="icon" href="{% static 'PICO-LOGO-SHORT.png' %}" type="image/gif">
+  </head>
+  <style>
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Unbounded:wght@200..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* -----------------company----------------------- */
+.company {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.company-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.img {
+  width: 100%;
+  margin: 1rem 0rem 0rem 2rem;
+}
+
+.img img {
+  width: 60%;
+  height: 100%;
+  margin-left: 100px;
+  border-radius: 1rem;
+}
+
+.company-info {
+  width: 100%;
+  margin-right: 4rem;
+}
+
+.company-info span {
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: 'Unbounded', cursive;
+}
+
+.company-info p{
+  font-size: 1.1rem;
+}
+/* ----------------------------------------------- */
+
+.team {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.team span {
+  font-size: 2.5rem;
+  font-weight: bold;
+  border-bottom: 4px solid #ffdc0e;
+  font-family: 'Unbounded', cursive;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  position: relative;
+  background: #fff;
+  max-width: 350px;
+  width: 350px;
+  margin: 20px;
+  border-radius: 1rem;
+  box-shadow: 0 5px 25px rgb(1 1 1 / 10%);
+}
+
+.card-image {
+  max-height: 50vh;
+  overflow: hidden;
+}
+
+.card-image img {
+  max-width: 100%;
+  height: auto;
+  visibility: hidden;
+}
+
+.card-title span {
+  visibility: hidden;
+}
+
+.yellow-surname {
+  color: #ffdc0e;
+}
+
+.card-description span {
+  visibility: hidden;
+}
+
+.card-mediaIcons a i {
+  visibility: hidden;
+}
+
+.card-info {
+  position: relative;
+  color: #222;
+  padding: 20px;
+}
+
+.card-info h3 {
+  font-size: 1.4em;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.card-info h4 {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.card-info a {
+  text-decoration: none;
+  color: navy;
+}
+
+.card-info p {
+  font-size: 1em;
+  margin-bottom: 15px;
+}
+
+.card-info .card-mediaIcons {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-info .card-mediaIcons a {
+  color: #999;
+  font-size: 1.4em;
+  margin: 0 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 50%;
+  transition: color 0.3s ease;
+}
+
+.card-info .card-mediaIcons a:hover {
+  color: #222;
+}
+
+.card-mediaIcons a img {
+  width: 40px;
+}
+
+.loading {
+  position: relative;
+  background: #e2e2e2;
+  overflow: hidden;
+}
+
+.loading:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: translateX(-100%);
+  animation: loading 1.5s infinite;
+}
+
+.info {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+@keyframes loading {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ------------------------------------------media-footer------------------------------------------- */
+@media (max-width: 900px) {
+  .company-info {
+    width: 100%;
+    margin-right: 0rem;
+    margin-left: 1rem;
+  }
+  .company-info p{
+    margin-right: 2rem;
+    text-align: center;
+  }
+  .company-info span {
+    font-size: 1.7rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  .team {
+    display: flex;
+    justify-content: center;
+  }
+
+  .team span {
+    font-size: 1.7rem;
+    font-weight: bold;
+  }
+  .company {
+    display: flex;
+    flex-direction: column;
+  }
+  .img {
+    margin-left: 0rem;
+  }
+  footer .content .link-boxes {
+    flex-wrap: wrap;
+  }
+  footer .content .link-boxes .input-box {
+    width: 40%;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 700px) {
+  footer {
+    position: relative;
+  }
+  .content .top .logo-details {
+    font-size: 26px;
+  }
+  .content .top .media-icons a {
+    height: 35px;
+    width: 35px;
+    font-size: 14px;
+    line-height: 35px;
+  }
+  footer .content .link-boxes .box {
+    width: calc(100% / 3 - 10px);
+  }
+  footer .content .link-boxes .input-box {
+    width: 60%;
+  }
+  .bottom-details .bottom_text span,
+  .bottom-details .bottom_text a {
+    font-size: 12px;
+  }
+}
+@media (max-width: 520px) {
+  footer::before {
+    top: 145px;
+  }
+  footer .content .top {
+    flex-direction: column;
+  }
+  .content .top .media-icons {
+    margin-top: 16px;
+  }
+  footer .content .link-boxes .box {
+    width: calc(100% / 2 - 10px);
+  }
+  footer .content .link-boxes .input-box {
+    width: 100%;
+  }
+}
+@media(max-width:320px){
+  .company-info p{
+    margin-right: 0rem;
+  }
+}
+/* ---------------------------------------------------------------------------- */
+
+  </style>
+  <body>
+    <!-- -----------------------------------------------company---------------------------------------------------------------- -->
+    <div class="company">
+      <div class="img">
+        <img src="https://raw.githubusercontent.com/pico-india/main-django/main/static/about-team.jpg" alt="" />
+      </div>
+      <div class="company-info">
+        <span>NOTES FOR EVERYONE</span>
+        <p>
+            Welcome to <b>Notes</b>, your go-to platform for organizing and managing your notes effortlessly. At Notes, our mission is to empower individuals to streamline their daily lives through efficient note-taking. We believe that organizing your thoughts shouldn't be a hassle, which is why we've created a user-friendly platform that adapts to your unique needs.
+        </p>
+      </div>
     </div>
+    <!-- ---------------------------------------------------------------------------------------------------------------------- -->
+    <!-- ----------------------------------------------------team-------------------------------------------------------------- -->
+    <div class="team"><span>OUR TEAM</span></div>
+    <div class="container">
+        <p> <b>Notes </b>was founded by a passionate team of developers who are dedicated to creating tools that enhance productivity and simplify everyday tasks. With a shared commitment to innovation and user satisfaction, we're constantly striving to improve and expand our app to better serve our community.</p>
+      <div class="card">
+        <div class="card-image loading"><img src="https://images.pexels.com/photos/39866/entrepreneur-startup-start-up-man-39866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" /></div>
+        <div class="card-info">
+          <h3 class="card-title loading"><span>Yash <span class="yellow-surname">Falke</span></span></h3>
+          <p class="card-description loading">
+            <span class="personal-info">
+              <span class="info">Graphic Designing Head</span> <br>
+              Pursuing IT Engineering (VIT Mumbai) <br>
+              Email: <a href="mailto:'@gmail.com'">@gmail.com</a>
+            </span>
+          </p>
+          <div class="card-mediaIcons">
+            <a href="#" class="loading" target="on_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="{% url 'viewprofile' 9 %}" class="loading" target="on_blank"><i><img
+                  src="https://raw.githubusercontent.com/pico-india/main-django/main/static/PICO-LOGO-SHORT.png" alt="Pico"></a></i>
+            <a href="https://www.instagram.com/" class="loading" target="on_blank"><i
+                class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-image loading"><img src="https://media.istockphoto.com/photos/portrait-of-handsome-latino-african-man-picture-id1007763808?k=20&m=1007763808&s=612x612&w=0&h=q4qlV-99EK1VHePL1-Xon4gpdpK7kz3631XK4Hgr1ls=" alt="" /></div>
+        <div class="card-info">
+          <h3 class="card-title loading"><span>Harsh <span class="yellow-surname">Sunwani</span></span></h3>
+          <p class="card-description loading">
+            <span class="personal-info">
+              <span class="info">Web Developing Head</span> <br>
+              Pursuing IT Engineering (VIT Mumbai) <br>
+              Email: <a href="mailto:'@gmail.com'">@gmail.com</a>
+            </span>
+          </p>
+          <div class="card-mediaIcons">
+            <a href="#" class="loading" target="on_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="{% url 'viewprofile' 7 %}" class="loading" target="on_blank"><i><img
+                  src="https://raw.githubusercontent.com/pico-india/main-django/main/static/PICO-LOGO-SHORT.png" alt="Pico"></i></a>
+            <a href="https://www.instagram.com/" class="loading" target="on_blank"><i
+                class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-image loading"><img src="https://images.pexels.com/photos/837358/pexels-photo-837358.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" /></div>
+        <div class="card-info">
+          <h3 class="card-title loading"><span>Nikhil <span class="yellow-surname">Jaiswal</span></span></h3>
+          <p class="card-description loading">
+            <span class="personal-info">
+              <span class="info">Marketing and Publicity Head</span> <br>
+              Pursuing IT Engineering (VIT Mumbai) <br>
+              Email: <a href="mailto:'@gmail.com'">@gmail.com</a>
+            </span>
+          </p>
+          <div class="card-mediaIcons">
+            <a href="#" class="loading" target="on_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="{% url 'viewprofile' 6 %}" class="loading" target="on_blank"><i><img
+                  src="https://raw.githubusercontent.com/pico-india/main-django/main/static/PICO-LOGO-SHORT.png" alt="Pico"></a></i>
+            <a href="#" class="loading" target="on_blank"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <script>
+    const cardImages = document.querySelectorAll(".card-image");
+const cardTitles = document.querySelectorAll(".card-title");
+const cardDescriptions = document.querySelectorAll(".card-description");
+const cardMediaIcons = document.querySelectorAll(".card-mediaIcons a");
+const cardImgs = document.querySelectorAll(".card-image img");
+const cardTitleSpans = document.querySelectorAll(".card-title span");
+const cardDescSpans = document.querySelectorAll(".card-description span");
+const mediaIcons = document.querySelectorAll(".card-mediaIcons a i");
+
+const renderCard = () => {
+  //Remove the skeleton loading effect
+  cardImages.forEach((cardImage) => {
+    cardImage.classList.remove("loading");
+  });
+  cardTitles.forEach((cardTitle) => {
+    cardTitle.classList.remove("loading");
+  });
+  cardDescriptions.forEach((cardDescription) => {
+    cardDescription.classList.remove("loading");
+  });
+  cardMediaIcons.forEach((cardMediaIcon) => {
+    cardMediaIcon.classList.remove("loading");
+  });
+
+  //Show the hidden html elements
+  cardImgs.forEach((cardImg) => {
+    cardImg.style.visibility = "visible";
+  });
+  cardTitleSpans.forEach((cardTitleSpan) => {
+    cardTitleSpan.style.visibility = "visible";
+  });
+  cardDescSpans.forEach((cardDescSpan) => {
+    cardDescSpan.style.visibility = "visible";
+  });
+  mediaIcons.forEach((mediaIcon) => {
+    mediaIcon.style.visibility = "visible";
+  });
+}
+
+//Execute renderCard on setTimeout
+setTimeout(() => {
+  renderCard();
+}, 1000);
+
+//Execute renderCard after the page loaded
+//window.addEventListener("load", () => {
+  //renderCard();
+//});
+
+  
+  </script>
+  </html>
